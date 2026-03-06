@@ -48,6 +48,29 @@ public class EmployeeService {
 	}
 	
 	
+	public void updateEmployeeName(Long id, RequestEmployeeDto employee) {
+		EmployeeEntity employeeResult = employeeRepository.findById(id).orElseThrow(() -> new RuntimeException("Employee não encontrado"));
+		
+		employeeResult.setName(employee.getName());
+		
+		employeeRepository.save(employeeResult);
+	}
 	
+	public void updateEmployeeResume(Long id, RequestEmployeeDto employee) {
+		EmployeeEntity employeeResult = employeeRepository.findById(id).orElseThrow(() -> new RuntimeException("Employee não encontrado"));
+		
+		employeeResult.setResume(employee.getResume());
+		
+		employeeRepository.save(employeeResult);
+	}
+	
+	
+	public void updateEmployeeSalary(Long id, RequestEmployeeDto employee) {
+		EmployeeEntity employeeResult = employeeRepository.findById(id).orElseThrow(() -> new RuntimeException("Employee não encontrado"));
+		
+		employeeResult.setSalary(employee.getSalary());
+		
+		employeeRepository.save(employeeResult);
+	}
 	
 }
