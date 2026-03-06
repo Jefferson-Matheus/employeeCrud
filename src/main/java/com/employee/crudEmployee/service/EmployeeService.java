@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.employee.crudEmployee.dto.EmployeeDto;
+import com.employee.crudEmployee.dto.RequestEmployeeDto;
 import com.employee.crudEmployee.entity.EmployeeEntity;
 import com.employee.crudEmployee.repository.EnployeeRepository;
 
@@ -26,5 +27,16 @@ public class EmployeeService {
 		
 	}
 	
+	
+	public void savaEmployee(RequestEmployeeDto employee) {
+		
+		EmployeeEntity employeeEntity = new EmployeeEntity();
+		
+		employeeEntity.setName(employee.getName());
+		employeeEntity.setResume(employee.getResume());
+		employeeEntity.setSalary(employee.getSalary());
+		
+		employeeRepository.save(employeeEntity);
+	}
 	
 }
