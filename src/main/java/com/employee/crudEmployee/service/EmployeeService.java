@@ -39,4 +39,15 @@ public class EmployeeService {
 		employeeRepository.save(employeeEntity);
 	}
 	
+	
+	public void deleteEmployee(Long id) {
+		
+		EmployeeEntity employeeResult = employeeRepository.findById(id).orElseThrow(() -> new RuntimeException("Employee não encontrado"));
+		
+		employeeRepository.delete(employeeResult);
+	}
+	
+	
+	
+	
 }
