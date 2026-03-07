@@ -28,15 +28,9 @@ public class EmployeeService {
 	}
 	
 	
-	public void savaEmployee(RequestEmployeeDto employee) {
+	public void savaEmployee(EmployeeEntity employee) {
 		
-		EmployeeEntity employeeEntity = new EmployeeEntity();
-		
-		employeeEntity.setName(employee.getName());
-		employeeEntity.setResume(employee.getResume());
-		employeeEntity.setSalary(employee.getSalary());
-		
-		employeeRepository.save(employeeEntity);
+		employeeRepository.save(employee);
 	}
 	
 	
