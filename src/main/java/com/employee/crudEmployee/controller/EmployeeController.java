@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -49,4 +50,23 @@ public class EmployeeController {
 		employeeService.deleteEmployee(id);
 		return ResponseEntity.ok().build();
 	}
+	
+	@PatchMapping(value = "/{id}/name")
+	public ResponseEntity<Void> upadateNameEmployee(@RequestBody RequestEmployeeDto employeeRequest, @PathVariable Long id){
+		employeeService.updateEmployeeName(id, employeeRequest);
+		return ResponseEntity.ok().build();
+	}
+	
+	@PatchMapping(value = "/{id}/resume")
+	public ResponseEntity<Void> upadateResumeEmployee(@RequestBody RequestEmployeeDto employeeRequest, @PathVariable Long id){
+		employeeService.updateEmployeeResume(id, employeeRequest);
+		return ResponseEntity.ok().build();
+	}
+	
+	@PatchMapping(value = "/{id}/salary")
+	public ResponseEntity<Void> upadateSalaryEmployee(@RequestBody RequestEmployeeDto employeeRequest, @PathVariable Long id){
+		employeeService.updateEmployeeSalary(id, employeeRequest);
+		return ResponseEntity.ok().build();
+	}
 }
+
